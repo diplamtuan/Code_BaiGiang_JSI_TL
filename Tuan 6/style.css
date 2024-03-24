@@ -1,0 +1,318 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+a {
+  color: black;
+  text-decoration: none;
+}
+/* 500 */
+@font-face {
+  font-family: "AirBnBFont";
+  font-weight: 500;
+  src: url("./fonts/AirBnB_Medium.woff2");
+}
+/* 700 */
+@font-face {
+  font-family: "AirBnBFont";
+  font-weight: 700;
+  src: url("./fonts/AirBnB_Bold.woff2");
+}
+/* 400 */
+@font-face {
+  font-family: "AirBnBFont";
+  font-weight: 400;
+  src: url("./fonts/AirBnB_Regular.woff2");
+}
+/* @font-face {
+    font-family: "AirBnbFontArabic";
+    src: url("./fonts/AirBnB_Arabic.woff2");
+  }
+  @font-face {
+    font-family: "AirBnbFontCyrillic";
+    src: url("./fonts/AirBnB_Cyrillic.woff2");
+  }
+  @font-face {
+    font-family: "AirBnbFontHebrew";
+    src: url("./fonts/AirBnB_Hebrew.woff2");
+  } */
+body {
+  font-family: "AirBnBFont", "san-serif";
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100px;
+  padding: 0 80px;
+  border-bottom: 1px solid #ccc;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  background-color: white;
+}
+
+header .logo {
+  color: #ff385c;
+}
+
+.inputSearch {
+  width: 400px;
+  height: 50px;
+  border-radius: 40px;
+  border: 1px solid #ccc;
+  display: flex;
+  overflow: hidden;
+  align-items: center;
+  padding: 0 10px;
+}
+
+.inputSearch input {
+  flex: 1;
+  height: 100%;
+  border: none;
+  outline: none;
+  padding: 0 20px;
+  font-size: 15px;
+}
+
+.inputSearch button {
+  width: 35px;
+  height: 35px;
+  background: #ff385c;
+  border-radius: 50%;
+  border: none;
+  color: white;
+  outline: none;
+  cursor: pointer;
+}
+
+.inputSearch button:hover {
+  background-color: black;
+  color: white;
+  transition: 0.5s all;
+}
+
+.header-control {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.header-control .globe {
+  color: black;
+  width: 40px;
+  height: 40px;
+  background-color: transparent;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.header-control .globe:hover {
+  background-color: rgba(204, 204, 204, 0.2);
+}
+
+.account {
+  width: 80px;
+  height: 40px;
+  border-radius: 20px;
+  border: 1px solid #ccc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  cursor: pointer;
+  position: relative;
+}
+
+.account:hover {
+  box-shadow: 1px 3px 8px 0px rgba(0, 0, 0, 0.3);
+}
+.account:hover ul {
+  display: block;
+}
+.account ul {
+  position: absolute;
+  right: 0;
+  top: 120%;
+  width: 150px;
+  list-style: none;
+  padding-left: 0;
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5);
+  z-index: 100;
+  background-color: white;
+  border-radius: 4px;
+  display: none;
+}
+.account:after {
+  position: absolute;
+  content: "";
+  display: block;
+  height: 10px;
+  width: 100%;
+  top: 100%;
+}
+
+.account ul li {
+  padding: 8px;
+  border-bottom: 1px solid #ccc;
+}
+.account ul li:hover {
+  opacity: 0.5;
+}
+/* Content */
+.content {
+  width: 90%;
+  margin: 100px auto 0;
+  overflow: hidden;
+}
+/* City List */
+
+.cityList {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.cityList .cityItem {
+  text-align: center;
+}
+.cityList .cityItem.active i,
+.cityList .cityItem.active p {
+  color: #ff385c;
+  font-weight: bold;
+}
+.cityList .cityItem:hover {
+  opacity: 0.5;
+  cursor: pointer;
+}
+.cityList .cityItem i {
+  font-size: 20px;
+}
+.cityList .cityItem p {
+  font-size: 15px;
+}
+
+/* Room list */
+.roomList {
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 30px;
+}
+
+.roomList .roomItem {
+  cursor: pointer;
+}
+
+.roomList .roomItem img {
+  width: 100%;
+  height: 250px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.roomDetail {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 4px;
+}
+.roomDetail h4 {
+  font-size: 15px;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 1; /* number of lines to show */
+  line-clamp: 1;
+  -webkit-box-orient: vertical;
+  font-weight: bold;
+}
+.roomDetail p {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+  font-size: 14px;
+}
+.roomDetail p i {
+  font-size: 12px;
+}
+
+.distance {
+  color: #717171;
+}
+
+.days {
+  color: #717171;
+}
+
+.price {
+  margin-top: 4px;
+}
+
+/* Footer */
+footer {
+  width: 60%;
+  margin: 100px auto 0;
+}
+
+.footerTop {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin-bottom: 40px;
+}
+
+.footerTopColumnn {
+  text-align: left;
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+}
+
+.footerTopColumnn h3 {
+  font-size: 16px;
+}
+
+.footerTopColumnn a {
+  font-size: 14px;
+  color: #686060;
+}
+
+.footerTopColumnn a:hover {
+  text-decoration: underline;
+}
+
+.footerBottom {
+  border-top: 1px solid #ccc;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 0;
+}
+
+.footerBottomLeft {
+  display: flex;
+  align-items: center;
+  font-size: 15px;
+  gap: 10px;
+}
+
+.footerBottomLeft a:hover {
+  text-decoration: underline;
+}
+
+.footerBottomRight {
+  display: flex;
+  gap: 10px;
+  font-size: 20px;
+}
+.footerBottomRight i {
+  cursor: pointer;
+}
+/* SPinner
+  
+  */
